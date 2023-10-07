@@ -137,7 +137,7 @@
       "background-1": {
         "settings": {
           "background": "#ffffff",
-          "background_gradient": "",
+          "background_gradient": "linear-gradient(252deg, rgba(0, 0, 0, 1) 15%, rgba(33, 249, 150, 1) 85%)",
           "text": "#121212",
           "button": "#121212",
           "button_label": "#ffffff",
