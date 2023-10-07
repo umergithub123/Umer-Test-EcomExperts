@@ -286,6 +286,7 @@
                         <cart-remove-button
                           id="Remove-{{ item.index | plus: 1 }}"
                           data-index="{{ item.index | plus: 1 }}"
+                          variant_id="{{ item.url | split: '=' | last }}"
                         >
                           <a
                             href="{{ item.url_to_remove }}"

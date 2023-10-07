@@ -1248,6 +1248,7 @@ button.shopify-payment-button__button--unbranded {
   -webkit-appearance: none;
   appearance: none;
   background-color: rgba(var(--color-button), var(--alpha-button-background));
+  
 }
 
 .button:before,
@@ -1695,6 +1696,7 @@ details[open] > .share-button__fallback {
   position: absolute;
   top: calc(50% - 0.2rem);
   right: calc(var(--inputs-border-width) + 1.5rem);
+  right: 0;
 }
 
 .select__select,

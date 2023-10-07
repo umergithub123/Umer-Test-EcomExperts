@@ -18,6 +18,15 @@ if (!customElements.get('product-form')) {
 
       onSubmitHandler(evt) {
         evt.preventDefault();
+
+        // custom js 
+        let size_dropdown_val = document.querySelector('select[name="options[Size]"]').value;
+        let size_error = document.querySelector('.size_error')
+        if(size_dropdown_val == 'unselected'){
+          size_error.style.display = 'block';
+          return false;
+        }
+
         if (this.submitButton.getAttribute('aria-disabled') === 'true') return;
 
         this.handleErrorMessage();
@@ -81,7 +90,15 @@ if (!customElements.get('product-form')) {
               );
               quickAddModal.hide(true);
             } else {
+
+              console.log('response',response);
+              
+              let check_id = response.variant_id;
+              if(check_id == 47094824534338){
+                addToCart(47034391167298,1)
+              }else{             
               this.cart.renderContents(response);
+              }
             }
           })
           .catch((e) => {

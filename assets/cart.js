@@ -1,11 +1,14 @@
+
+let cartItems = document.querySelector('cart-items') || document.querySelector('cart-drawer-items');
 class CartRemoveButton extends HTMLElement {
   constructor() {
     super();
 
     this.addEventListener('click', (event) => {
-      event.preventDefault();
-      const cartItems = this.closest('cart-items') || this.closest('cart-drawer-items');
-      cartItems.updateQuantity(this.dataset.index, 0);
+      event.preventDefault();     
+
+      cartItems.updateQuantity(this.dataset.index, 0); 
+      
     });
   }
 }
@@ -116,9 +119,12 @@ class CartItems extends HTMLElement {
     fetch(`${routes.cart_change_url}`, { ...fetchConfig(), ...{ body } })
       .then((response) => {
         return response.text();
+       
       })
       .then((state) => {
+
         const parsedState = JSON.parse(state);
+       
         const quantityElement =
           document.getElementById(`Quantity-${line}`) || document.getElementById(`Drawer-quantity-${line}`);
         const items = document.querySelectorAll('.cart-item');
@@ -168,6 +174,18 @@ class CartItems extends HTMLElement {
         }
 
         publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-items', cartData: parsedState, variantId: variantId });
+
+        var targt_del = document.querySelector('cart-remove-button[variant_id="47034391167298"]');
+        var targt_index = targt_del.getAttribute('data-index');
+        const itemsRemoved = parsedState.items_removed;
+        itemsRemoved.forEach((removedItem) => {
+          const variantId = removedItem.variant_id;
+          
+          if(variantId == 47094824534338){
+            targt_del.click();
+          }
+        });
+       
       })
       .catch(() => {
         this.querySelectorAll('.loading-overlay').forEach((overlay) => overlay.classList.add('hidden'));
@@ -175,7 +193,8 @@ class CartItems extends HTMLElement {
         errors.textContent = window.cartStrings.error;
       })
       .finally(() => {
-        this.disableLoading(line);
+        this.disableLoading(line);       
+
       });
   }
 
