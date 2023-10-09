@@ -901,6 +901,8 @@ summary::-webkit-details-marker {
   .grid {
     column-gap: var(--grid-desktop-horizontal-spacing);
     row-gap: var(--grid-desktop-vertical-spacing);
+    column-gap: 8px;
+    row-gap: 8px;
   }
 }
 
