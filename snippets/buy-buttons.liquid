@@ -73,6 +73,12 @@
               assign quantity_rule_soldout = true
             endif
           -%}
+          {% if product.handle == 'dark-winter-jacket' %}
+          You cannot buy this product 
+          {% else %}
+          {% if product.handle == 'black-leather-bag' %}
+            <p style="font-size: 12px;">Selet Black & Medium to get addtional product to your cart</p>
+          {% endif %}  
           <button
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
@@ -101,6 +107,7 @@
               </svg>
             </div>
           </button>
+          {% endif %}
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
           {%- endif -%}

@@ -1,0 +1,11 @@
+fieldset.js.product-form__input.Color label {
+    border-radius: 0px;
+    font-size: 0px;
+}
+fieldset.js.product-form__input.Size,
+.product-form__input.product-form__input--dropdown.Color{
+    display: none;
+}
+.product-form__submit {
+    border: 1px solid;
+}
