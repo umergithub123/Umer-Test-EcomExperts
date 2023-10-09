@@ -10,7 +10,7 @@ inputs.forEach((input)=>{
       let currnt_input = e.target;
       let value = currnt_input.getAttribute('value');
       color_dropdown.value = value;
-      let currnt_img = document.querySelector('.product__media-item img[alt="'+currnt_value+'"]');
+      let currnt_img = document.querySelector('.product__media-item img[alt="'+value+'"]');
       all_imgs.forEach((img)=>{
       img.closest('.product__media-item').style.display =  'none';               
       })        
